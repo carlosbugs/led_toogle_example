@@ -33,16 +33,19 @@ void app_main()
     gpio_set_direction(led_1, GPIO_MODE_OUTPUT);
     gpio_set_direction(led_2, GPIO_MODE_OUTPUT);
 
+    printf("\nHello World!\n\n");
+    vTaskDelay(2500 / portTICK_PERIOD_MS);
+
     while(1) {
         /* Blink off (output low) */
 	printf("Turning off the LED\n");
         gpio_set_level(led_1, 0);
         gpio_set_level(led_2, 0);
-        vTaskDelay(100 / portTICK_PERIOD_MS);
+        vTaskDelay(300 / portTICK_PERIOD_MS);
         /* Blink on (output high) */
 	printf("Turning on the LED\n");
         gpio_set_level(led_1, 1);
         gpio_set_level(led_2, 1);
-        vTaskDelay(100 / portTICK_PERIOD_MS);
+        vTaskDelay(300 / portTICK_PERIOD_MS);
     }
 }
